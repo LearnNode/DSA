@@ -1,0 +1,73 @@
+Mixin is a technique that copies data and functionality from a source object to a target object.
+We use ES6's Object.assign() to return a target object with properties from one or more source objects 'mixed into' that object.
+
+example
+
+const aircraft = {
+  flies: true
+}
+
+const car = {
+  hoots: true
+}
+
+const helicopter = Object.create(aircraft);
+
+console.log(helicopter.flies)
+
+
+Object.assign();
+
+This is a method that copies an object's own properties from one or more source objects into a target object;
+
+Example 2
+
+let target = {};
+
+let source = { number: 8 };
+
+Object.assign(target, source);
+
+Example 3
+
+let target = { age: 20, tribe: 'Taita' };
+
+let source = { age: 25 };
+
+Object.assign(target, source);
+
+
+Multiple Source objects
+
+Object.assign() can even take in Multiple different source objects.
+
+const Mutwiri = {
+  isADJ: true
+}
+
+const Ben = {
+  isAMusician: true
+}
+
+const Lovell = {
+  isAProgrammer: true,
+  age: 15
+}
+
+const family = Object.assign({}, Mutwiri, Ben, Lovell)
+
+We can also use Mixins with classes but you won't see the new properties added to the classes
+
+example 
+
+class Student {
+  getStudentRace = () => {
+    console.log('Taita')
+  }
+}
+
+let otherTraits = {
+  getStudentAge: 22
+}
+
+Object.assign(Student.prototype, otherTraits);
